@@ -36,4 +36,4 @@ current_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 setopt PROMPT_SUBST
-PROMPT='%n:%F{255}%1~%f%B%F{blue}$(current_branch)%b%f %% '
+PROMPT='%F{255}%1~%f%B%F{blue}$(current_branch)%b%f %% '
