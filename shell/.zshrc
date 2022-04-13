@@ -20,6 +20,12 @@ alias laralog!='rm storage/logs/laravel.log'
 alias nah='git reset --soft HEAD~1'
 alias nah!='git reset --hard HEAD~1'
 alias larastan='./vendor/bin/phpstan --memory-limit=2G'
+alias bdiff='git diff --name-only --diff-filter=d | xargs bat --diff'
+function cat() {
+    echo ""
+    bat --paging=never -pp --style=numbers,changes --italic-text=always --theme=TwoDark $*
+    echo ""
+}
 
 function dev() { cd ~/Development/$1 }
 function pangoon() { cd ~/Development/pangoon/$1 }
@@ -27,7 +33,7 @@ function roublez() { cd ~/Development/roublez/$1 }
 
 alias getmykey='cat ~/.ssh/id_rsa.pub | pbcopy && echo "SSH key copied!"'
 alias cpwd='pwd | pbcopy && echo "Working directory copied!"'
-
+function whichport() { lsof -nP -iTCP -sTCP:LISTEN | grep $1 }
 function sshcon() { echo "Connecting to $1..." && ssh forge@$1  }
 
 #
